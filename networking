@@ -1,0 +1,377 @@
+Networking Learnings :
+
+Network - a group of devices connected to each other (wired or wireless)
+SERVER : AN Device that handel the data request, information , network services from other computers known as clients. all the data is stored in the server(some times data base)
+INternet : is the collection of multiple networks that are connected to each other
+>>>> for the different netowrk to communicate with eachother in the internet , we use the switch , router for connecting them .
+
+
+
+IP : INTERNET PROTOCOL address , is an address given to all the computers in an network , without ip address an computer cannot connect to the internet
+MAC ADDRESS (MEDIA ACCESS CONTROL) - unique identification address that are assigned to the interfaces, they cannot be modified , it is physical address
+
+ROUTERS : are the devices the passes packets back and forth accross the network
+
+DOMAIN : is refered  to as a group of computers that are addressed as a whole . DNS
+
+OSI   &   TCP/IP : are the protocoles that are used
+
+OSI layers : A - P - S - T - N - D - P
+ osi layers is not used now , but it has influence in learning about the networking.
+
+1. application layer : here we do not directly link with the application it self , we use the ( http/https )
+2. presentation layer  : convert the data from the application understandable format to the network understandable format.
+3. session layer : create session for data transfer 
+
+4.Transport layer : it adds an HEADER , it converts the large set of data into smaller segments ,this will help in reducing      the network problems.(transmission problem) . example... i am watching an yt video ... then if the data are send in an small segments in an order , then when an transmission problem occures for an particular segment , then the video will render for that part and then move on to the next segment of data.
+
+3. Network layer : (PACKET) it adds an header (L3) to all the incoming segments . the network layer provides connectivity betweent end hosts on different netwok.
+   ... provides logical addression (IP ADDRESS)
+   ... provides path selection between the source and the destination 
+   ... Routers are used in this layer 
+2. DatalINK LAYER :(FRAME )(SWITCH is an example device) add HEADER AND TRAILER TO THE DATA .
+   ..... provide node to node connectivity 
+   .....  pc to switch , switch to router , router to router , router to switch , switch to pc or server.
+   ..... defines how data should be formateed , so that the data can be send to the physical layer
+1. Physical Layer :
+     ....defines the physical charactersitics the medium used to transfer data.
+     .. Digital bits are converted into electrical (wired connection)
+     ... Digital bits are converted into radion signals (wireless connection )
+
+
+
+
+An IP (Internet Protocol) address is a unique numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. IP addresses serve two main purposes: host or network interface identification and location addressing. They play a fundamental role in the functioning of the Internet and local networks.
+
+IP addresses can be classified into two types:
+
+IPv4 (Internet Protocol version 4): Expressed as four sets of numbers separated by dots (e.g., 192.168.1.1).
+
+IPv6 (Internet Protocol version 6): A newer protocol designed to address the limitations of IPv4, expressed as a series of hexadecimal numbers separated by colons (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334).
+
+Uses of IP Addresses:
+
+Host Identification:
+
+Every device connected to a network, such as a computer, smartphone, printer, or server, is assigned a unique IP address. This address is used to identify the specific device on the network.
+Network Routing:
+
+IP addresses are crucial for routing data across networks. Routers use IP addresses to determine the best path for data packets to reach their destination.
+Communication:
+
+Devices use IP addresses to communicate with each other over a network. When you send a request to a website, for example, your device uses the destination IP address to route the request to the correct server.
+Internet Connectivity:
+
+To access the internet, your device is assigned an IP address by your Internet Service Provider (ISP). This address is used for communication with servers on the internet.
+Domain Name System (DNS):
+
+The DNS translates human-readable domain names (like www.example.com) into IP addresses. This translation is necessary for your device to locate the server associated with a given domain.
+
+
+///////////////
+let me give an situation , i am using my laptop in my home using  my wifi . then my laptop will have an ip address , when i take my laptop to my office , will it create a new ip address for my laptop?
+ChatGPT
+Yes, when you move your laptop from your home to your office and connect to a different network, your laptop will typically be assigned a new IP address by the network at your office. This process happens through DHCP (Dynamic Host Configuration Protocol), which automatically assigns IP addresses to devices on a network.
+///////////////
+Router IP Address:
+
+Your home router has an IP address (e.g., 192.168.1.1). This address is used to manage and configure the router.
+Device IP Addresses:
+
+Each device connected to the home network is assigned a unique IP address. For instance:
+Computer: 192.168.1.2
+Smartphone: 192.168.1.3
+Printer: 192.168.1.4
+Communication:
+
+When your computer (192.168.1.2) wants to access a website (e.g., www.example.com), it sends a request to the router (192.168.1.1).
+The router, in turn, forwards the request to the DNS server (e.g., 8.8.8.8) to resolve the domain name www.example.com into an IP address.
+Once the IP address is obtained (e.g., 93.184.216.34), the router directs the request to the appropriate server on the internet.
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////x
+
+
+
+FIREWALL : 
+
+
+2 types: software firewall -host based firewall - for a particular host alone
+         network-based firewall : combination of physical and software - it is placed between the router of the organisation and the public wifi . ( it is placed before the router .... so it is placed in the network layer)
+the firewall are made perticularily for an organization to protect the data from external attacks.
+
+these firewall are made up using the FIREWALL RULES : ( ACCESS CONTROL LIST ) : they look over that enters and leave the network
+like the access control list looks for :  1/ ip address  ,
+                                           2/ port  
+                                           3/ protocol 
+                                           4/ destination address .
+                                           5/ PROGRAMS
+                                           6/key words
+                                           7/ domain names
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+HTTPS . HTTPS , SSL , TLS
+
+Hypertext transfer protocol - protocol that is used to view web pages on the internet - the text that i enter to see in the internet is transfered to the public internet . so the text that i entered can be viewed by others - i enter the email , passoword , creditcard information - these data are vulnerable to the hackers.
+               these data that i enter need to pass throught the public internet to reach the server . therfore it is not safe.
+
+Secure hypertext transfer protocol - the secure http encrypts the data the is obtained by the http , and send that encrypted data or the hashed data over the internet to the destination server . as the data can not be read by the external parites . it is safe to enter sensetive informations.
+    the https protects (encryptes the data) - the data by using one of two protocoles . 
+                1 ///and one of that protocole is SSL.
+                2 //// TLS - Transport layer security
+
+SSL - Secure Socket Layer : --- it uses public key encryption to encrypt data ..... when i enter www.google.com .. the web browser on my computer asks for an ssl certificate to the web server , the server sends it and then acknoledgement takes place.... after this process.. the web server shares an PUBLIC KEY FOR ENCRYPTION.
+
+TLS - Transport Layer Security --- latest protocol ... successor to ssl --- 
+     -- it authenticates the SERVER
+                             CLIENT
+                             ENCRYPT THE DAta
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    INTERVIEW QUESTIONS:
+
+ differentiate between a router, a hub and a switch.
+ What is a link?
+ What is a node?
+ What does a backbone network mean?
+ What is network topology?
+ Explain what is LAN.
+ What are routers?
+ What is a Point-to-Point network?
+ What is OSI model?
+ Give a brief description about each layer in the OSI Model.
+ What do you mean by anonymous FTP?
+ What is the meaning of network?
+ What do you mean by a Subnet Mask?
+ Give a brief description of the TCP/IP Model.
+ What is the difference between the OSI Model and TCP/IP Model?
+ What is a UTP cable?
+ What is the maximum length allowed for a UTP cable?
+ Explain what is HTTP and which port it uses.
+ What is NAT?
+ What is TCP?
+ Give a brief explanation about UDP.
+ Difference between TCP and UDP.
+ What is RIP?
+ Explain what is a firewall.
+ Explain what is NOS.
+ Explain what is Denial of Service (DoS).
+ What is the full form of ASCII?
+ What is IEEE?
+ What is a MAC Address and why is it required?
+ What is piggybacking?
+ Explain what is DNS.
+ Differentiate between Domain and Workgroup
+ What is OSPF?
+ What is Round Trip Time?
+ What is DHCP?
+ Briefly explain what ICMP is.
+ What is a ping?
+ What are the advantages of optic fibers?
+ What is a client/server network?
+ In a network that contains two servers and twenty workstations, where is the best place to install an Anti-virus program?
+ What do you mean by Ethernet?
+ What is SLIP?
+ What is the difference between CSMA/CD and CSMA/CA?
+ Briefly explain what tunnel mode is.
+ What do you mean by IPv6?
+ Explain the RSA Algorithm briefly.
+ What is an encoder?
+ What is a decoder?
+ What is a sneakernet?
+ What are the components of a protocol?        
+
+
+ **1. Differentiation between Router, Hub, and Switch:**
+
+- **Router:**
+  - Operates at the network layer (Layer 3) of the OSI model.
+  - Connects different networks and routes data between them based on IP addresses.
+  - Makes decisions about the best path for forwarding data.
+  - Can provide security features, such as Network Address Translation (NAT) and firewall capabilities.
+
+- **Hub:**
+  - Operates at the physical layer (Layer 1) of the OSI model.
+  - Basic networking device that connects multiple devices in a LAN.
+  - Broadcasts data to all connected devices, leading to a less efficient use of bandwidth.
+  - Does not differentiate between devices and does not have the ability to manage traffic.
+
+- **Switch:**
+  - Operates at the data link layer (Layer 2) of the OSI model.
+  - Connects devices in a LAN and uses MAC addresses to forward data only to the intended device.
+  - More intelligent than a hub, providing better bandwidth utilization and reduced collisions.
+  - Can operate in full-duplex mode, allowing for simultaneous data transmission.
+
+**2. Link:**
+- A link refers to the physical or logical connection between two devices in a network. It can be a cable, wireless connection, or any communication channel that enables data transfer.
+
+**3. Node:**
+- In networking, a node is a device that is part of a network and can send, receive, or forward data. Examples include computers, servers, routers, and switches.
+
+**4. Backbone Network:**
+- A backbone network is a high-capacity, central network that connects multiple smaller networks. It facilitates communication between different segments of a larger network.
+
+**5. Network Topology:**
+- Network topology refers to the layout or arrangement of devices and connections in a computer network. Common topologies include bus, star, ring, mesh, and hybrid configurations.
+
+**6. LAN (Local Area Network):**
+- A LAN is a network that is limited to a small geographic area, such as a single building or campus. Devices within a LAN can communicate with each other directly.
+
+**7. Routers:**
+- Routers are networking devices that connect different networks and forward data between them. They operate at the network layer and use IP addresses for routing.
+
+**8. Point-to-Point Network:**
+- A Point-to-Point network is a communication link between two devices. It is a direct connection without other devices in between.
+
+**9. OSI Model:**
+- The OSI (Open Systems Interconnection) model is a conceptual framework that standardizes the functions of a telecommunication or computing system into seven layers.
+
+**10. Anonymous FTP:**
+- Anonymous FTP allows users to access and download files from a server without providing a username and password. It often uses the username "anonymous" or "ftp" and requires an email address as the password.
+
+**11. Network:**
+- A network is a collection of interconnected devices and systems that can communicate and share resources with each other.
+
+**12. Subnet Mask:**
+- A subnet mask is a 32-bit number that divides an IP address into network and host portions. It is used to identify the network to which an IP address belongs.
+
+**13. TCP/IP Model:**
+- The TCP/IP (Transmission Control Protocol/Internet Protocol) model is a networking architecture that defines a suite of protocols used for communication on the Internet.
+
+**14. Difference between OSI Model and TCP/IP Model:**
+- The OSI model has seven layers, while the TCP/IP model has four layers.
+- The TCP/IP model's layers are Application, Transport, Internet, and Link, which correspond to the top four layers of the OSI model.
+
+**15. UTP Cable:**
+- UTP (Unshielded Twisted Pair) cable is a type of networking cable that consists of pairs of insulated copper wires twisted together. It is commonly used in Ethernet networks.
+
+**16. Maximum Length for a UTP Cable:**
+- The maximum length for a UTP cable depends on the category (e.g., Cat 5e, Cat 6). Generally, the maximum length for Ethernet over UTP is 100 meters.
+
+**17. HTTP (Hypertext Transfer Protocol):**
+- HTTP is the protocol used for transferring hypertext documents on the World Wide Web. It typically uses port 80 for communication.
+
+**18. NAT (Network Address Translation):**
+- NAT is a technique that allows multiple devices on a local network to share a single public IP address for accessing the Internet.
+
+**19. TCP (Transmission Control Protocol):**
+- TCP is a connection-oriented protocol that provides reliable and ordered delivery of data. It operates at the transport layer of the OSI model.
+
+**20. UDP (User Datagram Protocol):**
+- UDP is a connectionless protocol that provides faster but less reliable delivery of data. It is often used for real-time applications such as streaming and gaming.
+
+**21. Difference between TCP and UDP:**
+- TCP is connection-oriented, while UDP is connectionless.
+- TCP provides reliable data delivery, while UDP is faster but may result in lost or unordered data.
+
+**22. RIP (Routing Information Protocol):**
+- RIP is a routing protocol used for dynamically exchanging route information in a network.
+
+**23. Firewall:**
+- A firewall is a network security device that monitors and controls incoming and outgoing network traffic based on predetermined security rules.
+
+**24. NOS (Network Operating System):**
+- NOS is an operating system specifically designed to support network functions, including file sharing, printing, and communication.
+
+**25. Denial of Service (DoS):**
+- DoS is a cyber-attack in which the attacker attempts to make a computer or network resource unavailable to its intended users by overwhelming it with excessive traffic.
+
+**26. ASCII (American Standard Code for Information Interchange):**
+- ASCII is a character encoding standard that represents text characters using numerical codes. It uses 7 or 8 bits per character.
+
+**27. IEEE (Institute of Electrical and Electronics Engineers):**
+- IEEE is a professional association that develops standards for various industries, including networking and communications.
+
+**28. MAC Address:**
+- A MAC (Media Access Control) address is a unique identifier assigned to a network interface card (NIC) for communication on a network.
+
+**29. Piggybacking:**
+- Piggybacking refers to the unauthorized access of a wireless network by using another user's connection without their knowledge.
+
+**30. DNS (Domain Name System):**
+- DNS is a system that translates human-readable domain names into IP addresses, facilitating the location of resources on the Internet.
+
+**31. Domain vs. Workgroup:**
+- A domain is a centralized network structure with a domain controller, while a workgroup is a decentralized peer-to-peer network without a central authority.
+
+**32. OSPF (Open Shortest Path First):**
+- OSPF is a dynamic routing protocol used to exchange routing information within an autonomous system.
+
+**33. Round Trip Time:**
+- Round Trip Time (RTT) is the time it takes for a packet to travel from the source to the destination and back. It is a measure of network latency.
+
+**34. DHCP (Dynamic Host Configuration Protocol):**
+- DHCP is a network protocol that automatically assigns IP addresses and other network configuration information to devices on a network.
+
+**35. ICMP (Internet Control Message Protocol):**
+- ICMP is a network layer protocol used for error reporting and diagnostics, often associated with                    
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+port in computer networks:   port numbers range from  0 - 65535
+ 0- 1023 (syster or well known ports) -- this is used by servers and company
+ 1024 - 49151 (user or registered ports) - this is used by servers and company
+ 49152 - 65535(dynamic or private ports) -- oru computer assign these port to our own use for all the sessions
+
+HTTP (Hypertext Transfer Protocol):
+
+Port 80 (HTTP)
+Port 8080 (HTTP alternate)
+
+HTTPS (Hypertext Transfer Protocol Secure):
+Port 443 (HTTPS)
+
+FTP (File Transfer Protocol):
+Port 21 (FTP control)
+Port 20 (FTP data)
+
+SSH (Secure Shell):
+Port 22 (SSH)
+
+Telnet:
+Port 23 (Telnet)
+
+SMTP (Simple Mail Transfer Protocol):
+Port 25 (SMTP)
+
+POP3 (Post Office Protocol version 3):
+Port 110 (POP3)
+
+IMAP (Internet Message Access Protocol):
+Port 143 (IMAP)
+
+DNS (Domain Name System):
+Port 53 (DNS)
+
+SNMP (Simple Network Management Protocol):
+Port 161 (SNMP)
+Port 162 (SNMP traps)
+
+RDP (Remote Desktop Protocol):
+Port 3389 (RDP)
+
+MySQL Database:
+Port 3306 (MySQL)
+
+HTTP Proxy:
+Port 3128 (HTTP proxy)
+NTP (Network Time Protocol):
+
+Port 123 (NTP)
+LDAP (Lightweight Directory Access Protocol):
+
+Port 389 (LDAP)
+HTTPS (HTTP Secure) Proxy:
+
+Port 8088 (HTTP proxy)
+Microsoft Exchange:
+
+Port 25 (SMTP for email delivery)
+Port 143 (IMAP for email retrieval)
+Port 110 (POP3 for email retrieval)
+Port 587 (SMTP for email message submission)
+Microsoft SQL Server:
+
+Port 1433 (SQL Server)

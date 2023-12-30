@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void threadFunction() {
+    cout << "Hello from the new thread!" << endl;
+}
+
+void independentThread() {
+    cout << "Independent thread running." << endl;
+    this_thread::sleep_for(chrono::seconds(2));
+    cout << "Independent thread finished." << endl;
+}
+
+void printThreadId() {
+    cout << "Thread ID: " << this_thread::get_id() << endl;
+}
+
+void threadFunctionWithYield(int id) {
+    for (int i = 0; i < 5; ++i) {
+        cout << "Thread " << id << " is running..." << endl;
+        this_thread::yield();
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+}
+
+int main() {
+    // Example 1: Basic Thread Creation
+    thread myThread(threadFunction);
+
+    // Example 2: Detached Thread
+    thread detachedThread(independentThread);
+    detachedThread.detach();
+
+    // Example 3: Thread ID
+    thread t1(printThreadId);
+    thread t2(printThreadId);
+
+    // Example 4: Yielding Thread
+    thread t3(threadFunctionWithYield, 1);
+    thread t4(threadFunctionWithYield, 2);
+
+    // Joining threads from Example 1
+    myThread.join();
+
+    // Joining threads from Example 3
+    t1.join();
+    t2.join();
+
+    // Joining threads from Example 4
+    t3.join();
+    t4.join();
+
+    return 0;
+}

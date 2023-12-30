@@ -1,0 +1,65 @@
+use shift+k to run the code
+
+palo alto 
+
+
+1. longest substring without repeating characters
+2. Find middle element of the linked list
+Construct a tree from data, then print the tree
+minimum distance between two elements
+
+two sum ,three sum, sliding window, min and max heap , left view of a tree 
+graph - dijik
+permutation - next_permutation in a do while loop 
+itoa()- can be used to convert integer to string
+itoa() is not standard , use to_string(); to convert interger to string.
+for base conversion -:
+ to binary format or hexa deciaml format:
+  - itoa(number, string,base value);
+  
+
+
+dish it
+Permutations of string, expression evaluation, remove duplicate from sorted array.
+ diamond problem in oops
+ 1) reverse a linked list 
+ 2) insertion and deletion in linked list at head and tail position
+3) basics of bst and bt
+ Code Gradient descent algorithm, Code KNN algorithm, 
+ 1. given a singly sorted linkedlist and a number, insert this number in sorted order.
+2. given a sorted array, sort this array according to square of each element.
+3. Basic question from OOPs, DBMS, SQL
+lexicographical order of string by removing duplicates-duplicates and count the months in a year which starts by sunday. Java program of strings to sort hashmaps. bitwise operation questions.
+1. Find transpose of a matrix
+2. Simple mutex implementation.
+3. Simple queue implementation.
+1) How to delete node in linked list.
+2) How to fix loop in a linked list
+3) take a two linked lists. Second list's last node pointing to some node in first list. How to fix this.
+4) convert Big endian to Little endian.
+memcpy implementation. COnvolution in C
+
+
+
+              SORT
+
+//sort() Function can be used to sort the vecotr in acsending order.
+
+for descending order
+sort(v.begin(),v.end(),greater<int>)
+
+we have a vector of pair<int,int> , sort the vector based on the second value
+vector<pair<int,int>> vec;
+
+//NOTE : THE DIRECTION OF THE COMPARISION
+//to sort in descending
+sort(vec.begin(), vec.end(), 
+      [](const auto& a, const auto& b) { return a.second > b.second;}
+    );
+//to sort in acsending
+sort(vec.begin(), vec.end(), 
+      [](const auto& a, const auto& b) { return a.second < b.second;}
+    );
+
+
+          

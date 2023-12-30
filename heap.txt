@@ -1,0 +1,33 @@
+
+heap representation
+
+if we have an vector<> then we can change it to min or max heap 
+using the  make_heap() Function .
+
+we nee to access the element , then we create an pripority queue
+
+pripority_queue<int , vector<int>, greater<int>()> pq;
+
+
+int main() {
+
+    vector<int> v = {3, 2, 3, 1, 2, 4, 5, 5, 6};
+
+    // Applying make_heap 
+    //to make min heap
+    make_heap(v.begin(), v.end(),greater<int>());
+    cout << "Min-Heap after make_heap:" << endl;
+    for (int num : v) {
+        cout << num << " ";
+    }
+    // to make max heap 
+    make_heap(v.begin(),v.end());
+    // Display the heap
+
+    cout << "Max-Heap after make_heap:" << endl;
+    for (int num : v) {
+        cout << num << " ";
+    }
+
+    return 0;
+}

@@ -1,0 +1,59 @@
+
+sliding window
+
+leetcode  215 - sliding window. first we create the min heap for the k elements , then we 
+add one element from the right pointer and add one position to the left pointer
+then check for the top element in the queue
+
+
+maximum sum subarray - with size k --easy
+int maxSumSubarray(const vector<int>& nums, int k) {
+    int n = nums.size();
+    int maxSum = 0;
+    // Calculate the sum of the first window of size k
+    for (int i = 0; i < k; ++i) {
+        maxSum += nums[i];
+    }
+    int windowSum = maxSum;
+    // Slide the window through the array
+    for (int i = k; i < n; ++i) {
+        windowSum += nums[i] - nums[i - k]; // add the next element and remove the first element.
+        maxSum = max(maxSum, windowSum);
+    }
+    return maxSum;
+}
+int main() {
+    vector<int> nums = {1, 4, 2, 10, 2, 3, 1, 0, 20,20};
+    int k = 4;
+    int result = maxSumSubarray(nums, k);
+    cout << "Maximum Sum Subarray of Size " << k << ": " << result << endl;
+    return 0;
+}
+
+Longest Substring Without Repeating Characters--hard
+
+int lengthOfLongestSubstring(const string& s) {
+    int n = s.length();
+    int maxLength = 0;
+    unordered_map<char, int> charIndex; // To store the last index of each character
+    int left = 0; // Left pointer of the window
+    for (int right = 0; right < n; ++right) {
+        char currentChar = s[right];
+        // If the character is seen before, move the left pointer to the right of its last occurrence
+        if (charIndex.find(currentChar) != charIndex.end()) {
+            left = max(left, charIndex[currentChar] + 1);
+        }
+        // Update the last index of the current character
+        charIndex[currentChar] = right;
+        // Update the maximum length of the substring
+        maxLength = max(maxLength, right - left + 1);
+    }
+    return maxLength;
+}
+int main() {
+    string input = "abcabcbb";
+    int result = lengthOfLongestSubstring(input);
+    cout << "Longest Substring Without Repeating Characters: " << result << endl;
+    return 0;
+}
+

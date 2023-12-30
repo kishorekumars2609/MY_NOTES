@@ -1,0 +1,86 @@
+// Function to convert binary to decimal
+int binaryToDecimal(string binary) {
+    int decimal = 0;
+    int size = binary.size();
+
+    for (int i = 0; i < size; ++i) {
+        if (binary[i] == '1') {
+            decimal += pow(2, size - 1 - i);
+        }
+    }
+
+    return decimal;
+}
+
+
+
+// Function to convert decimal to binary
+string decimalToBinary(int decimal) {
+    return bitset<8 * sizeof(int)>(decimal).to_string();
+}
+
+// Function to convert decimal to octal
+string decimalToOctal(int decimal) {
+    stringstream ss;
+    ss << oct << decimal;
+    return ss.str();
+}
+
+// Function to convert decimal to hexadecimal
+string decimalToHexadecimal(int decimal) {
+    stringstream ss;
+    ss << hex << decimal;
+    return ss.str();
+}
+
+// Function to convert octal to binary
+string octalToBinary(string octal) {
+    stringstream ss;
+    ss << oct << octal;
+    int decimal;
+    ss >> decimal;
+    return bitset<3 * sizeof(int)>(decimal).to_string();
+}
+
+// Function to convert binary to decimal
+int binaryToDecimal(string binary) {
+    return stoi(binary, nullptr, 2);
+}
+
+// Function to convert hexadecimal to decimal
+int hexadecimalToDecimal(string hexadecimal) {
+    stringstream ss;
+    ss << hex << hexadecimal;
+    int decimal;
+    ss >> decimal;
+    return decimal;
+}
+
+
+stringstream:
+
+
+#include <iostream>
+#include <sstream>
+
+int main() {
+    std::stringstream ss("Initial String");
+
+    // Inserting more data into the stringstream
+    ss << " More Data";
+
+    // Extracting the result as a string
+    std::string result = ss.str();
+
+    // Display the result
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}
+In this example, the std::stringstream is initially
+ set with the string "Initial String." More data 
+  then inserted using the << operator, and the final 
+  result is obtained using the .str() member function.
+   This allows you to manipulate strings in a stream-like
+    manner, which can be handy for various string-related 
+    operations.
