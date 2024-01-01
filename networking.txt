@@ -19,6 +19,25 @@ OSI   &   TCP/IP : are the protocoles that are used
 OSI layers : A - P - S - T - N - D - P
  osi layers is not used now , but it has influence in learning about the networking.
 
+FPS - FRAME , PACKET , SEGMENT
+
+in layer 4 : transport layer:
+             
+             DATA | L4 HEADER    [SEGMENT]         - THE L4 header will contain information about TCP OR UDP and PORT NO
+
+in layer 3 : NAETWORK LAYER :
+             
+             DATA | L4 HEADER | L3 HEADER  [PACKET]   - THE L3 header holds the infromation about the IP ADDRESS , source and
+                                              destination address.      
+
+in layer 3 : DATA LINK LAYER :  [FRAMES]
+
+             L2 TRAILER | DATA | L4 HEADER | L3 HEADER | l2 HEADER   -- the l2 header and
+                                                                        trailer has the information about the MAC ADDRESSS . 
+
+in layer 1 : the FRAMES ARE send over the eathernet cable or wireless network.                                        
+
+
 1. application layer : here we do not directly link with the application it self , we use the ( http/https )
 2. presentation layer  : convert the data from the application understandable format to the network understandable format.
 3. session layer : create session for data transfer 
@@ -70,7 +89,7 @@ The DNS translates human-readable domain names (like www.example.com) into IP ad
 
 ///////////////
 let me give an situation , i am using my laptop in my home using  my wifi . then my laptop will have an ip address , when i take my laptop to my office , will it create a new ip address for my laptop?
-ChatGPT
+answer:
 Yes, when you move your laptop from your home to your office and connect to a different network, your laptop will typically be assigned a new IP address by the network at your office. This process happens through DHCP (Dynamic Host Configuration Protocol), which automatically assigns IP addresses to devices on a network.
 ///////////////
 Router IP Address:
@@ -89,8 +108,57 @@ The router, in turn, forwards the request to the DNS server (e.g., 8.8.8.8) to r
 Once the IP address is obtained (e.g., 93.184.216.34), the router directs the request to the appropriate server on the internet.
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+IP address is layer 3 address ..(ROUTER USE THEM)
+switch is layer 2 ... so they use the layer 2 address ... MAC address
+
+                                  HUB VS SWITCH
+       
+       the CAM hold the MAC address of the devices that are connected to the switch
+
+HUB - is also a device in layer 2 --- it is used before the Switch
+SWITCH : layer 2 device : Data link layer ---- the switch has CAM (CONTENT ADDRESSABLE MEMORY) or SWITCHING TABLE -- it stores the details of all the ip addresses(devices) that are connected to the switch. ... LAYER 2 ADDRESS (datalink layer address .. with header and tail)
+   example /..... there are 2 networks  having devices 1,2,3,4 .a network with switch and another network has a hub in it.
+               ...... if device 1 wants to ping device 4 ... in switch network .. the ping packet from 1 is send to switch .. the switch send it to the device 4 ... has it has the CAM.
+               ...... if device 1 wants to ping device 4 ... in HUB network ... the ping packet from 1 is send to hub ... the hub will send the packet to all the deives that are connected to it ..(2,3,4)... the device 4 will acknoledge the packet .. and the device 2,3 will ignore it ... then the device will send the replay ping message to hub .. again the hub will send the replay to all the other devices that are connected to it.. (1,2,3)
+
+      therefore , hub is waste and we are using switch in layer 2.
+
+CLI cmd : in switch : show mac-address-table
+
+....Learn about the ARP MSG ........................................
+        
+        ARP request - is used to find the MAC ADDRESS
+
+
+ok how does an switch learn the mac address of all the devices that are connected to it ? ... we use ping <destination ip address>  to start the msg .. where does the mac address stored or mentioned .... 
+switch is level 2 .. so they only understnad the mac address... when we use the ping cmd using the desination ip address ... inside the network ... 
+note : in the ip address .. there will be network address and host addresss....(ARP MESSAGE) the sender device 1 will use the broadcase address ... and send it to the switch .. this broad cast address .. send the search message of the ip address to all the deives .. the devices are found using the broadcast address.... and the mac address are stored in the CAM table.....
+
+when device 1 send the msg through the broadcase address... the CAM table stores the mac address of the device 1... when the deice 4 respond for it ... then , in that time the CAM table stores the MAC addrss of the device 4.
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                                          ROUTER:
+  Router is an layer 3 device... 
+  
+Note : switch is used to connect devices that are in the same network .... i.e ... in the IP address .. we check the network address and the host address .
+
+so when i try to ping a devics that is in an different network (example soure : 1.1.1.2  to destination  : 23.23.23.224)... these 2 has different network address .... so to connect them we use router.
+..................................ARP MESSAGE /....................
+the router also has an table that stores the path to connect to other networks.....
+
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////x
+                  DNS: Domain Name System
+
+now , when i enter ... www.youtube.com ... this is a name .. we should turn it into an ip address so that we can send the 
+
+http request messsage from our device to the server of youtube (ip address of youtube server.)
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
